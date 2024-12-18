@@ -1,94 +1,229 @@
-<h2>Cleared for driver training</h2>
-Abdelmeseh, Kyrollos *Added Prior to 2024.11.10*<br />
-Bambico, Justin *Added 2024.12.14*<br />
-Bilotto, Alexandra *Added 2024.12.07*<br />
-Carrada-Lopez, Jaddeliz *Added Prior to 2024.11.10*<br />
-Gomez, Anthony *Added 2024.11.19*<br />
-Kostelnik, Jack *Added Prior to 2024.11.10*<br />
-Medina, Brandon *Added Prior to 2024.11.10*<br />
-Modi, Vrinda *Added 2024.12.14*<br />
-Pagan, Michael Alexander *Added 2024.12.14*<br />
-Pereda, Wendy *Added 2024.12.14*<br />
-Rios-Rodriguez, Elieric *Added 2024.12.07*<br />
-Souza, Kimberly *Added Prior to 2024.11.10*<br />
-<br /><br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Drivers Roll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Prevent excessively wide tables */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Prevent column jumping */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        th {
+            cursor: pointer;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+        th:hover {
+            background-color: #e2e2e2;
+        }
+        th .arrow {
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        /* Neutral state using an image */
+        th:not(.asc):not(.desc) .arrow {
+            width: 6.4px;
+            height: 12px;
+            background-image: url('neutral.png'); /* Replace with the path to your neutral.png */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* Active sorting arrows */
+        th.asc .arrow::before {
+            content: "▲";
+            font-size: 12px;
+			margin-bottom: 5px;
+        }
+        th.desc .arrow::before {
+            content: "▼";
+            font-size: 12px;
+			margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Cleared for Driver Training</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+                    <th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+                    <th>Date Added</th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr><td>Abdelmeseh</td><td>Kyrollos</td><td>Prior to 2024.11.10</td></tr>
+				<tr><td>Bambico</td><td>Justin</td><td>2024.12.14</td></tr>
+				<tr><td>Bilotto</td><td>Alexandra</td><td>2024.12.07</td></tr>
+				<tr><td>Carrada-Lopez</td><td>Jaddeliz</td><td>Prior to 2024.11.10</td></tr>
+				<tr><td>Gomez</td><td>Anthony</td><td>2024.11.19</td></tr>
+				<tr><td>Kostelnik</td><td>Jack</td><td>Prior to 2024.11.10</td></tr>
+				<tr><td>Medina</td><td>Brandon</td><td>Prior to 2024.11.10</td></tr>
+				<tr><td>Modi</td><td>Vrinda</td><td>2024.12.14</td></tr>
+				<tr><td>Pagan</td><td>Michael Alexander</td><td>2024.12.14</td></tr>
+				<tr><td>Pereda</td><td>Wendy</td><td>2024.12.14</td></tr>
+				<tr><td>Rios-Rodriguez</td><td>Elieric</td><td>2024.12.07</td></tr>
+				<tr><td>Souza</td><td>Kimberly</td><td>Prior to 2024.11.10</td></tr>
+            </tbody>
+        </table>
+    </div>
 
+    <div class="box">
+        <h2>Driving Field Training Officers (FTOs)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+                    <th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr><td>Alexander</td><td>Phillip</td></tr>
+				<tr><td>Ardanz</td><td>Pax</td></tr>
+				<tr><td>Aziz</td><td>Malak</td></tr>
+				<tr><td>Barakat</td><td>Emma</td></tr>
+				<tr><td>Bell</td><td>Walter</td></tr>
+				<tr><td>Bubb</td><td>Michael</td></tr>
+				<tr><td>Cunningham</td><td>Anthony</td></tr>
+				<tr><td>Demateis</td><td>Joseph</td></tr>
+				<tr><td>Fulton</td><td>Dawan</td></tr>
+				<tr><td>Gandhi</td><td>Nevan</td></tr>
+				<tr><td>Hamed</td><td>Mohamed</td></tr>
+				<tr><td>Jehangir</td><td>Kaizad</td></tr>
+				<tr><td>Kaufman</td><td>Alexander</td></tr>
+				<tr><td>Leth</td><td>Ross</td></tr>
+				<tr><td>Mendoza</td><td>Eric</td></tr>
+				<tr><td>Molina</td><td>Angel</td></tr>
+				<tr><td>Monrroy</td><td>Christopher</td></tr>
+				<tr><td>Oestreich</td><td>Michael</td></tr>
+				<tr><td>Parriott</td><td>Renee</td></tr>
+				<tr><td>Raj</td><td>Rishabh</td></tr>
+				<tr><td>Rusko</td><td>Yuriy</td></tr>
+				<tr><td>Shaw</td><td>Sandy</td></tr>
+				<tr><td>Zelasko</td><td>Joe</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-<h2>Driving FTOs</h2>
-Alexander, Phillip<br />
-Ardanz, Pax<br />
-Aziz, Malak<br />
-Barakat, Emma<br />
-Bell, Walter<br />
-Bubb, Michael<br />
-Cunningham, Anthony<br />
-Demateis, Joseph<br />
-Fulton, Dawan<br />
-Gandhi, Nevan<br />
-Hamed, Mohamed<br />
-Jehangir, Kaizad<br />
-Kaufman, Alexander<br />
-Leth, Ross<br />
-Mendoza, Eric<br />
-Molina, Angel<br />
-Monrroy, Christopher<br />
-Oestreich, Michael<br />
-Parriott, Renee<br />
-Raj, Rishabh<br />
-Rusko, Yuriy<br />
-Shaw, Sandy<br />
-Zelasko, Joe<br />
-<br /><br />
+    <div class="box">
+        <h2>Cleared Drivers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+                    <th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr><td>Ahmed</td><td>Prince</td></tr>
+				<tr><td>Barsky</td><td>Veronica</td></tr>
+				<tr><td>Benounane</td><td>Hafeda</td></tr>
+				<tr><td>Bolos</td><td>Bavely</td></tr>
+				<tr><td>Bravo</td><td>Mell</td></tr>
+				<tr><td>Camargo</td><td>Wilman</td></tr>
+				<tr><td>Campos</td><td>Miquel</td></tr>
+				<tr><td>Caraballo</td><td>Billy</td></tr>
+				<tr><td>Cardenas</td><td>Catherine</td></tr>
+				<tr><td>Carretero</td><td>Jason</td></tr>
+				<tr><td>Carvache</td><td>Segundo</td></tr>
+				<tr><td>Covan</td><td>Alexander</td></tr>
+				<tr><td>Darts</td><td>Julian</td></tr>
+				<tr><td>Delgado</td><td>Emily</td></tr>
+				<tr><td>Elsayed</td><td>Akram</td></tr>
+				<tr><td>Franco</td><td>Jeaninne</td></tr>
+				<tr><td>Garcia</td><td>Franzine</td></tr>
+				<tr><td>Gear</td><td>Daniel</td></tr>
+				<tr><td>Giesecke</td><td>Jenna</td></tr>
+				<tr><td>Giron</td><td>Yuri</td></tr>
+				<tr><td>Gomez</td><td>Ryan</td></tr>
+				<tr><td>Hadzic</td><td>Luka</td></tr>
+				<tr><td>Harris</td><td>Mark</td></tr>
+				<tr><td>Harris</td><td>Tyler</td></tr>
+				<tr><td>Hayes</td><td>Paul</td></tr>
+				<tr><td>Higgins</td><td>Sophia</td></tr>
+				<tr><td>Hoffman</td><td>Christopher</td></tr>
+				<tr><td>Lebovits</td><td>Chaim</td></tr>
+				<tr><td>Malave</td><td>Kashana</td></tr>
+				<tr><td>Marquez</td><td>Rodolfo</td></tr>
+				<tr><td>Mehta</td><td>Saumya</td></tr>
+				<tr><td>Mercun</td><td>John</td></tr>
+				<tr><td>Molta</td><td>Thomas</td></tr>
+				<tr><td>Mosquera</td><td>Jamie</td></tr>
+				<tr><td>Oconer</td><td>Francis</td></tr>
+				<tr><td>Parikh</td><td>Yash</td></tr>
+				<tr><td>Romero</td><td>Ariadne</td></tr>
+				<tr><td>Saied</td><td>Youssef</td></tr>
+				<tr><td>Salloum</td><td>Zahraa</td></tr>
+				<tr><td>Shah</td><td>Shrey</td></tr>
+				<tr><td>Shenbagaraman</td><td>Subbiah</td></tr>
+				<tr><td>Smith</td><td>Syheed</td></tr>
+				<tr><td>Spikhalsky</td><td>Dmitry</td></tr>
+				<tr><td>Vasquez</td><td>Brandon</td></tr>
+				<tr><td>Weschke</td><td>Andrew</td></tr>
+				<tr><td>Weschke</td><td>BJ</td></tr>
+				<tr><td>Wiessler</td><td>Sarah</td></tr>
+				<tr><td>Yang</td><td>Nicole</td></tr>
+            </tbody>
+        </table>
+    </div>
 
+    <script>
+        function sortTable(header, colIndex) {
+            const table = header.closest("table");
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.rows);
 
-<h2>Cleared Drivers</h2>
-Ahmed, Prince<br />
-Barsky, Veronica<br />
-Benounane, Hafeda<br />
-Bolos, Bavely<br />
-Bravo, Mell<br />
-Camargo, Wilman<br />
-Campos, Miquel<br />
-Caraballo, Billy<br />
-Cardenas, Catherine<br />
-Carretero, Jason<br />
-Carvache, Segundo<br />
-Covan, Alexander <br />
-Darts, Julian<br />
-Delgado, Emily<br />
-Elsayed, Akram<br />
-Franco, Jeaninne<br />
-Garcia, Franzine<br />
-Gear, Daniel<br />
-Giesecke, Jenna<br />
-Giron, Yuri<br />
-Gomez, Ryan<br />
-Hadzic, Luka<br />
-Harris, Mark<br />
-Harris, Tyler<br />
-Hayes, Paul<br />
-Higgins, Sophia<br />
-Hoffman, Christopher<br />
-Lebovits, Chaim<br />
-Malave, Kashana<br />
-Marquez, Rodolfo<br />
-Mehta, Saumya<br />
-Member_Name<br />
-Mercun, John<br />
-Molta, Thomas<br />
-Mosquera, Jamie<br />
-Oconer, Francis<br />
-Parikh, Yash<br />
-Romero, Ariadne<br />
-Saied, Youssef<br />
-Salloum, Zahraa<br />
-Shah, Shrey<br />
-Shenbagaraman, Subbiah<br />
-Smith, Syheed<br />
-Spikhalsky, Dmitry<br />
-Vasquez, Brandon<br />
-Weschke, Andrew<br />
-Weschke, BJ<br />
-Wiessler, Sarah<br />
-Yang, Nicole<br />
-<br />
+            const isAsc = header.classList.contains("asc");
+            rows.sort((a, b) => {
+                const cellA = a.cells[colIndex].innerText.toLowerCase();
+                const cellB = b.cells[colIndex].innerText.toLowerCase();
+
+                if (cellA < cellB) return isAsc ? 1 : -1;
+                if (cellA > cellB) return isAsc ? -1 : 1;
+                return 0;
+            });
+
+            tbody.append(...rows);
+
+            // Reset all headers
+            table.querySelectorAll("th").forEach(th => {
+                th.classList.remove("asc", "desc");
+            });
+
+            // Add the correct class to the current header
+            header.classList.toggle("asc", !isAsc);
+            header.classList.toggle("desc", isAsc);
+        }
+
+        // Default sort by last name on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("table").forEach(table => {
+                const defaultHeader = table.querySelector("th:nth-child(1)");
+                sortTable(defaultHeader, 0);
+            });
+        });
+    </script>
+</body>
+</html>
