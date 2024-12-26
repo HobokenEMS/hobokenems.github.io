@@ -15,7 +15,7 @@
 		}
         .box {
             border: 1px solid #ccc;
-            padding: 15px;
+            padding: 10px;
             margin: 10px auto;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,17 +25,6 @@
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed; /* Prevent column jumping */
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            word-wrap: break-word;
-        }
-        th {
-            cursor: pointer;
-            background-color: #f4f4f4;
-            position: relative;
         }
         th:hover {
             background-color: #e2e2e2;
@@ -65,9 +54,20 @@
             font-size: 12px;
 			margin-bottom: 5px;
         }
-		td, th {
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
 			font-size: 0.8em;
-		}
+			padding: 6px; /* Minimal padding for aesthetics */
+        }
+        th {
+            cursor: pointer;
+            background-color: #f4f4f4;
+            position: relative;
+			white-space: nowrap;
+        }
     </style>
 </head>
 <body>
