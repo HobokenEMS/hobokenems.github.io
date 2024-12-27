@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HVAC Driver Training Manual</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 10px;
+        line-height: 1.5;
+      }
+      h2 {
+        margin-block-start: 0.2em;
+        margin-block-end: 0.83em;
+      }
+      .box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 800px; /* Prevent excessively wide tables */
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* Prevent column jumping */
+      }
+      th:hover {
+        background-color: #e2e2e2;
+      }
+      th .arrow {
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+      /* Neutral state using an image */
+      th:not(.asc):not(.desc) .arrow {
+        width: 6.4px;
+        height: 12px;
+        background-image: url("./static/sort-neutral.png"); /* Replace with the path to your neutral.png */
+        background-size: cover;
+        background-repeat: no-repeat;
+        /*margin-right: 5px;*/
+      }
+      /* Active sorting arrows */
+      th.asc .arrow::before {
+        content: "▲";
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+      th.desc .arrow::before {
+        content: "▼";
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        word-wrap: break-word;
+        font-size: 0.8em;
+        padding: 6px; /* Minimal padding for aesthetics */
+      }
+      th {
+        cursor: pointer;
+        background-color: #f4f4f4;
+        position: relative;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Overview</h2>
+    <p>
+      First and foremost, this isn't just a training manual for drivers - it's
+      intended as a reference for all HVAC members, since everyone should know
+      the basics about the vehicles they're in. Awareness is key. This training
+      manual is divided into three modules:
+    </p>
+    <ol>
+      <li><b>Introduction to Vehicles:</b> Required for all members.</li>
+      <li>
+        <b>Introduction to Emergency Vehicles:</b> Required for all members with
+        a driver's license.
+      </li>
+      <li>
+        <b>Emergency Vehicle Operations:</b> Required for all driver trainees.
+      </li>
+    </ol>
+    <p>
+      As members get closer to driver training, they progress through the
+      different modules. This style is necessary because non-driver members may
+      be called upon to drive other vehicles (such as the ALS flycar/ambulance
+      or supervisor's vehicle) in urgent situations. All members with a driver's
+      license should be, at minimum, capable of operating emergency vehicles in
+      a non-emergency mode safely and expeditiously.
+    </p>
+
+    <h2>Introduction to Vehicles</h2>
+    <ul>
+      <li>
+        <b>Truck Familiarization:</b> (including the differences between
+        ambulances)
+      </li>
+      <li>
+        <b>Policies:</b> Lights & sirens, ALS vehicles, licensed vs. certified
+        ambulances
+      </li>
+      <li><b>Lights & Sirens Use: Cold/warm/hot standardization</b></li>
+    </ul>
+
+    <h2></h2>
+    <ul>
+      <li><b></b></li>
+      <li><b></b></li>
+      <li><b></b></li>
+    </ul>
+  </body>
+</html>
