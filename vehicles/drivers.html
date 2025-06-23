@@ -1,118 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HVAC Drivers Roll</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HVAC Drivers Roll</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 10px;
+		}
 		h2 {
 			margin-block-start: 0.2em;
 			margin-block-end: 0.83em;
 		}
-        .box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 800px; /* Prevent excessively wide tables */
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Prevent column jumping */
-        }
-        th:hover {
-            background-color: #e2e2e2;
-        }
-        th .arrow {
-            display: inline-block;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-        /* Neutral state using an image */
-        th:not(.asc):not(.desc) .arrow {
-            width: 6.4px;
-            height: 12px;
-            background-image: url('./static/sort-neutral.png'); /* Replace with the path to your neutral.png */
-            background-size: cover;
-            background-repeat: no-repeat;
+		.box {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px auto;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			max-width: 800px; /* Prevent excessively wide tables */
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed; /* Prevent column jumping */
+		}
+		th:hover {
+			background-color: #e2e2e2;
+		}
+		th .arrow {
+			display: inline-block;
+			margin-left: 5px;
+			vertical-align: middle;
+		}
+		/* Neutral state using an image */
+		th:not(.asc):not(.desc) .arrow {
+			width: 6.4px;
+			height: 12px;
+			background-image: url('./static/sort-neutral.png'); /* Replace with the path to your neutral.png */
+			background-size: cover;
+			background-repeat: no-repeat;
 			/*margin-right: 5px;*/
-        }
-        /* Active sorting arrows */
-        th.asc .arrow::before {
-            content: "▲";
-            font-size: 12px;
+		}
+		/* Active sorting arrows */
+		th.asc .arrow::before {
+			content: "▲";
+			font-size: 12px;
 			margin-bottom: 5px;
-        }
-        th.desc .arrow::before {
-            content: "▼";
-            font-size: 12px;
+		}
+		th.desc .arrow::before {
+			content: "▼";
+			font-size: 12px;
 			margin-bottom: 5px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            word-wrap: break-word;
+		}
+		th, td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+			word-wrap: break-word;
 			font-size: 0.8em;
 			padding: 6px; /* Minimal padding for aesthetics */
-        }
-        th {
-            cursor: pointer;
-            background-color: #f4f4f4;
-            position: relative;
+		}
+		th {
+			cursor: pointer;
+			background-color: #f4f4f4;
+			position: relative;
 			white-space: nowrap;
-        }
-    </style>
+		}
+	</style>
 </head>
 <body>
-    <div class="box">
-        <h2>Cleared for Driver Training</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th nowrap onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-                    <th nowrap onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+	<div class="box">
+		<h2>Cleared for Driver Training</h2>
+		<table>
+			<thead>
+				<tr>
+					<th nowrap onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+					<th nowrap onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
 					<th width="15%" nowrap="">How cool?</th>
-                    <th nowrap>Date Added</th>
-                </tr>
-            </thead>
-            <tbody> 
+					<th nowrap>Date Added</th>
+				</tr>
+			</thead>
+			<tbody> 
 				<tr><td>Abdelmeseh</td><td>Kyrollos</td><td>Obs.</td><td>Prior to 2024.11.10</td></tr>
-		     		<tr><td>Alkasem</td><td>Bachar</td><td>Obs.</td><td>2025.06.10</td></tr>
+				<tr><td>Alkasem</td><td>Bachar</td><td>Obs.</td><td>2025.06.10</td></tr>
 				<tr><td>Bilotto</td><td>Alexandra</td><td>Obs.</td><td>2024.12.07</td></tr>
+				<tr><td>Dob</td><td>Samy</td><td>EMT</td><td>2025.06.23</td></tr>
 				<tr><td>Garcia</td><td>Vivien</td><td>Obs.</td><td>2025.01.27</td></tr>
-		    		<tr><td>Gouya</td><td>Chaimae</td><td>Obs.</td><td>2025.06.10</td></tr>
-		   		<tr><td>Havener</td><td>Emerson</td><td>Obs.</td><td>2025.06.10</td></tr> 
-		    		<tr><td>Khosla</td><td>Tara</td><td>Obs</td><td>2025.05.03</td></tr>
-		   		<tr><td>Liu</td><td>Isaiah Zachary</td><td>EMT</td><td>2025.02.24</td></tr>
-		   		<tr><td>Maldonado</td><td>Cindy</td><td>Obs.</td><td>2025.04.25</td></tr>
+				<tr><td>Gouya</td><td>Chaimae</td><td>Obs.</td><td>2025.06.10</td></tr>
+				<tr><td>Havener</td><td>Emerson</td><td>Obs.</td><td>2025.06.10</td></tr> 
+				<tr><td>Khosla</td><td>Tara</td><td>Obs</td><td>2025.05.03</td></tr>
+				<tr><td>Liu</td><td>Isaiah Zachary</td><td>EMT</td><td>2025.02.24</td></tr>
+				<tr><td>Maldonado</td><td>Cindy</td><td>Obs.</td><td>2025.04.25</td></tr>
 				<tr><td>Modi</td><td>Vrinda</td><td>EMT</td><td>2024.12.14</td></tr>
-		   	 	<tr><td>Moon</td><td>Dylan James</td><td>Obs.</td><td>2025.06.10</td></tr>
+				<tr><td>Moon</td><td>Dylan James</td><td>Obs.</td><td>2025.06.10</td></tr>
 				<tr><td>Shabazz</td><td>Ishmail R</td><td>EMT</td><td>2025.06.10</td></tr>
-		                <tr><td>Slim</td><td>Maya</td><td>Obs.</td><td>2025.05.20</td></tr>
-		    		<tr><td>Sternberg</td><td>Maya Samara</td><td>EMT</td><td>2025.06.10</td></tr
-		                <tr><td>Sung</td><td>Lydia</td><td>Obs.</td><td>2025.05.19</td></tr>
-		   		<!--   <tr><td>LastName</td><td>FirstName</td><td>EMT or Obs.</td><td>DateAdded</td></tr>   -->     
-            </tbody> 
-        </table>
-    </div>
+				<tr><td>Slim</td><td>Maya</td><td>Obs.</td><td>2025.05.20</td></tr>
+				<tr><td>Sternberg</td><td>Maya Samara</td><td>EMT</td><td>2025.06.10</td></tr
+				<tr><td>Sung</td><td>Lydia</td><td>Obs.</td><td>2025.05.19</td></tr>
+				<!--   <tr><td>LastName</td><td>FirstName</td><td>EMT or Obs.</td><td>DateAdded</td></tr>   -->     
+			</tbody> 
+		</table>
+	</div>
 
-    <div class="box">
-        <h2>Driving Field Training Officers (FTOs)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-                    <th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
-                </tr>
-            </thead>
-            <tbody>
+	<div class="box">
+		<h2>Driving Field Training Officers (FTOs)</h2>
+		<table>
+			<thead>
+				<tr>
+					<th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+					<th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+				</tr>
+			</thead>
+			<tbody>
 				<tr><td>Alexander</td><td>Phillip</td></tr>
 				<tr><td>Ardanz</td><td>Pax</td></tr>
 				<tr><td>Aziz</td><td>Malak</td></tr>
@@ -124,7 +125,7 @@
 				<tr><td>Fulton</td><td>Dawan</td></tr>
 				<tr><td>Gandhi</td><td>Nevan</td></tr>
 				<tr><td>Hamed</td><td>Mohamed</td></tr>
-		    		<tr><td>Harris</td><td>Tyler</td></tr>
+				<tr><td>Harris</td><td>Tyler</td></tr>
 				<tr><td>Jehangir</td><td>Kaizad</td></tr>
 				<tr><td>Kaufman</td><td>Alexander</td></tr>
 				<tr><td>Leth</td><td>Ross</td></tr>
@@ -139,27 +140,27 @@
 				<tr><td>Shaw</td><td>Sandy</td></tr>
 				<tr><td>Vasquez</td><td>Brandon</td></tr>
 				<tr><td>Zelasko</td><td>Joe</td></tr>
-            </tbody>
-        </table>
-    </div>
+			</tbody>
+		</table>
+	</div>
 
-    <div class="box">
-        <h2>Cleared Drivers</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-                    <th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
-                </tr>
-            </thead>
-            <tbody>
+	<div class="box">
+		<h2>Cleared Drivers</h2>
+		<table>
+			<thead>
+				<tr>
+					<th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
+					<th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
+				</tr>
+			</thead>
+			<tbody>
 				<tr><td>Ahmed</td><td>Prince</td></tr>
 				<tr><td>Alley</td><td>Lauren M</td></tr>
-		                <tr><td>Bambico</td><td>Justin</td></tr>
+				<tr><td>Bambico</td><td>Justin</td></tr>
 				<tr><td>Barsky</td><td>Veronica</td></tr>
 				<tr><td>Benounane</td><td>Hafeda</td></tr>
 				<tr><td>Bravo</td><td>Mell</td></tr>
-		   	 	<tr><td>Calvert</td><td>Robert</td></tr>
+				<tr><td>Calvert</td><td>Robert</td></tr>
 				<tr><td>Carrada-Lopez</td><td>Jaddeliz</td></tr>
 				<tr><td>Campos</td><td>Miquel</td></tr>
 				<tr><td>Cardenas</td><td>Catherine</td></tr>
@@ -167,7 +168,7 @@
 				<tr><td>Covan</td><td>Alexander</td></tr>
 				<tr><td>Darts</td><td>Julian</td></tr>
 				<tr><td>Delgado</td><td>Emily</td></tr>
-		    		<tr><td>Desrosier</td><td>Amani</td></tr>
+				<tr><td>Desrosier</td><td>Amani</td></tr>
 				<tr><td>Elsayed</td><td>Akram</td></tr>
 				<tr><td>Franco</td><td>Jeaninne</td></tr>
 				<tr><td>Garcia</td><td>Franzine</td></tr>
@@ -184,7 +185,7 @@
 				<tr><td>Hoffman</td><td>Christopher</td></tr>
 				<tr><td>Javed</td><td>Hamza</td></tr>
 				<tr><td>Kostelnik</td><td>Jack</td></tr>
-		    		<tr><td>Kothamasu</td><td>Harichandana</td></tr>
+				<tr><td>Kothamasu</td><td>Harichandana</td></tr>
 				<tr><td>Lebovits</td><td>Chaim</td></tr>
 				<tr><td>Medina</td><td>Brandon</td></tr>
 				<tr><td>Mehta</td><td>Saumya</td></tr>
@@ -193,59 +194,59 @@
 				<tr><td>Mosquera</td><td>Jamie</td></tr>
 				<tr><td>Parikh</td><td>Yash</td></tr>
 				<tr><td>Pereda</td><td>Wendy</td></tr>
-		   	 	<tr><td>Rios-Rodriguez</td><td>Elieric</td></tr>
+				<tr><td>Rios-Rodriguez</td><td>Elieric</td></tr>
 				<tr><td>Romero</td><td>Ariadne</td></tr>
 				<tr><td>Saied</td><td>Youssef</td></tr>
 				<tr><td>Salloum</td><td>Zahraa</td></tr>
 				<tr><td>Shah</td><td>Shrey</td></tr>
 				<tr><td>Shenbagaraman</td><td>Subbiah</td></tr>
 				<tr><td>Smith</td><td>Syheed</td></tr>
-		    		<tr><td>Souza</td><td>Kimberly</td></tr>
+				<tr><td>Souza</td><td>Kimberly</td></tr>
 				<tr><td>Spikhalsky</td><td>Dmitry</td></tr>
-		    		<tr><td>Shulkin</td><td>Ann</td></tr>
+				<tr><td>Shulkin</td><td>Ann</td></tr>
 				<tr><td>Weschke</td><td>Andrew</td></tr>
 				<tr><td>Weschke</td><td>BJ</td></tr>
 				<tr><td>Wiessler</td><td>Sarah</td></tr>
 				<tr><td>Yang</td><td>Nicole</td></tr>
-            </tbody>
-        </table>
-    </div>
+			</tbody>
+		</table>
+	</div>
 
-    <script>
-        function sortTable(header, colIndex) {
-            const table = header.closest("table");
-            const tbody = table.querySelector("tbody");
-            const rows = Array.from(tbody.rows);
+	<script>
+		function sortTable(header, colIndex) {
+			const table = header.closest("table");
+			const tbody = table.querySelector("tbody");
+			const rows = Array.from(tbody.rows);
 
-            const isAsc = header.classList.contains("asc");
-            rows.sort((a, b) => {
-                const cellA = a.cells[colIndex].innerText.toLowerCase();
-                const cellB = b.cells[colIndex].innerText.toLowerCase();
+			const isAsc = header.classList.contains("asc");
+			rows.sort((a, b) => {
+				const cellA = a.cells[colIndex].innerText.toLowerCase();
+				const cellB = b.cells[colIndex].innerText.toLowerCase();
 
-                if (cellA < cellB) return isAsc ? 1 : -1;
-                if (cellA > cellB) return isAsc ? -1 : 1;
-                return 0;
-            });
+				if (cellA < cellB) return isAsc ? 1 : -1;
+				if (cellA > cellB) return isAsc ? -1 : 1;
+				return 0;
+			});
 
-            tbody.append(...rows);
+			tbody.append(...rows);
 
-            // Reset all headers
-            table.querySelectorAll("th").forEach(th => {
-                th.classList.remove("asc", "desc");
-            });
+			// Reset all headers
+			table.querySelectorAll("th").forEach(th => {
+				th.classList.remove("asc", "desc");
+			});
 
-            // Add the correct class to the current header
-            header.classList.toggle("asc", !isAsc);
-            header.classList.toggle("desc", isAsc);
-        }
+			// Add the correct class to the current header
+			header.classList.toggle("asc", !isAsc);
+			header.classList.toggle("desc", isAsc);
+		}
 
-        // Default sort by last name on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll("table").forEach(table => {
-                const defaultHeader = table.querySelector("th:nth-child(1)");
-                sortTable(defaultHeader, 0);
-            });
-        });
-    </script>
+		// Default sort by last name on page load
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll("table").forEach(table => {
+				const defaultHeader = table.querySelector("th:nth-child(1)");
+				sortTable(defaultHeader, 0);
+			});
+		});
+	</script>
 </body>
 </html>
