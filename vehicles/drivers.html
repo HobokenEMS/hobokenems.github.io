@@ -1,261 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HVAC Drivers Roll</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 10px;
-		}
-		h2 {
-			margin-block-start: 0.2em;
-			margin-block-end: 0.83em;
-		}
-		.box {
-			border: 1px solid #ccc;
-			padding: 10px;
-			margin: 10px auto;
-			border-radius: 5px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			max-width: 800px; /* Prevent excessively wide tables */
-		}
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			table-layout: fixed; /* Prevent column jumping */
-		}
-		th:hover {
-			background-color: #e2e2e2;
-		}
-		th .arrow {
-			display: inline-block;
-			margin-left: 5px;
-			vertical-align: middle;
-		}
-		/* Neutral state using an image */
-		th:not(.asc):not(.desc) .arrow {
-			width: 6.4px;
-			height: 12px;
-			background-image: url('./static/sort-neutral.png'); /* Replace with the path to your neutral.png */
-			background-size: cover;
-			background-repeat: no-repeat;
-			/*margin-right: 5px;*/
-		}
-		/* Active sorting arrows */
-		th.asc .arrow::before {
-			content: "▲";
-			font-size: 12px;
-			margin-bottom: 5px;
-		}
-		th.desc .arrow::before {
-			content: "▼";
-			font-size: 12px;
-			margin-bottom: 5px;
-		}
-		th, td {
-			border: 1px solid #ddd;
-			padding: 8px;
-			text-align: left;
-			word-wrap: break-word;
-			font-size: 0.8em;
-			padding: 6px; /* Minimal padding for aesthetics */
-		}
-		th {
-			cursor: pointer;
-			background-color: #f4f4f4;
-			position: relative;
-			white-space: nowrap;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Drivers Roll</title>
+    <style>
+        :root {
+            --border-color: #ddd;
+            --header-bg: #f8f9fa;
+            --hover-bg: #f1f3f5;
+            --accent-color: #0056b3;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.5;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .index-nav {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .index-nav b { font-size: 0.9rem; color: #666; text-transform: uppercase; }
+        .index-nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #f0f4f8;
+            transition: all 0.2s;
+        }
+        .index-nav a:hover { background-color: var(--accent-color); color: white; }
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 900px;
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th {
+            cursor: pointer;
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        th:hover { background-color: #eceef0; }
+        td { border: 1px solid var(--border-color); padding: 10px; vertical-align: middle; }
+        tr:hover td { background-color: var(--hover-bg); }
+        
+        /* Column Widths */
+        .col-last { width: 25%; }
+        .col-first { width: 30%; }
+
+        .th-wrap { display: flex; align-items: center; justify-content: space-between; }
+        .arrow { font-size: 0.8em; margin-left: 8px; color: #bbb; }
+        th.asc .arrow::before { content: "▲"; color: #333; }
+        th.desc .arrow::before { content: "▼"; color: #333; }
+        th:not(.asc):not(.desc) .arrow::before { content: "↕"; opacity: 0.5; }
+
+        @media (max-width: 600px) {
+            body { margin: 10px; }
+            .box { padding: 12px; }
+            th, td { padding: 8px 5px; font-size: 0.82em; }
+        }
+    </style>
 </head>
 <body>
-	<div class="box">
-		<h2>Cleared for Driver Training</h2>
-		<table>
-			<thead>
-				<tr>
-					<th nowrap onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-					<th nowrap onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
-					<th width="15%" nowrap="">How cool?</th>
-					<th nowrap>Date Added</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td>Adames</td><td>Daniel</td><td>EMT</td><td>2025.10.25</td></tr>
-				<tr><td>Akl</td><td>Sohaib</td><td>Obs.</td><td>2025.09.16</td></tr>
-				<tr><td>Bilotto</td><td>Alexandra</td><td>Obs.</td><td>2024.12.07</td></tr>
-				<tr><td>Borentain</td><td>Chloe</td><td>EMT</td><td>2025.12.18</td></tr>
-				<tr><td>Chelala</td><td>Clea</td><td>EMT</td><td>2025.10.02</td></tr>
-				<tr><td>Devito</td><td>Sofia</td><td>EMT</td><td>2025.12.29</td></tr>
-				<tr><td>Garcia</td><td>Vivien</td><td>Obs.</td><td>2025.01.27</td></tr>
-				<tr><td>Goswami</td><td>Sophia</td><td>Obs.</td><td>2025.10.07</td></tr>
-				<tr><td>Gouya</td><td>Chaimae</td><td>Obs.</td><td>2025.06.10</td></tr>
-				<tr><td>Griggs</td><td>Elizabeth</td><td>Obs.</td><td>2026.01.02</td></tr>
-				<tr><td>Henderson</td><td>Nariya</td><td>Obs.</td><td>2025.11.15</td></tr> 
-				<tr><td>Khosla</td><td>Tara</td><td>Obs</td><td>2025.05.03</td></tr>
-				<tr><td>Letizia</td><td>Joseph</td><td>Obs</td><td>2026.01.02</td></tr>				
-				<tr><td>Liu</td><td>Isaiah Zachary</td><td>EMT</td><td>2025.02.24</td></tr>
-				<tr><td>Merisier</td><td>Anastasia</td><td>Obs.</td><td>2025.08.26</td></tr>
-				<tr><td>Modi</td><td>Vrinda</td><td>EMT</td><td>2024.12.14</td></tr>
-				<tr><td>Moreno</td><td>Emily</td><td>Obs.</td><td>2025.10.20</td></tr>
-				<tr><td>Moustafa</td><td>Azza</td><td>EMT</td><td>2025.10.02</td></tr>
-			    <tr><td>Nuila</td><td>Nicolas</td><td>EMT</td><td>2025.11.08</td></tr>
-			    <tr><td>Okun</td><td>Adam</td><td>EMT</td><td>2025.11.15</td></tr>
-			    <tr><td>Ortega</td><td>Angie</td><td>Obs.</td><td>2025.12.30</td></tr>
-			    <tr><td>Perez</td><td>Melanie</td><td>Obs.</td><td>2025.12.29</td></tr>
-				<tr><td>Spitz</td><td>Tianna</td><td>EMT</td><td>2025.12.29</td></tr>
-				<tr><td>Sternberg</td><td>Maya Samara</td><td>EMT</td><td>2025.06.10</td></tr>
-				<tr><td>Zaro</td><td>Gabriela</td><td>EMT</td><td>2026.01.05</td></tr>
-				<!--   <tr><td>LastName</td><td>FirstName</td><td>EMT or Obs.</td><td>DateAdded</td></tr>   -->
 
- 
-				
-			</tbody> 
-		</table>
-	</div>
+    <nav class="index-nav">
+        <b>Jump to:</b>
+        <a href="#trainees">Trainees</a>
+        <a href="#cleared">Cleared Drivers</a>
+        <a href="#ftos">Driving Field Training Officers (FTOs)</a>
+    </nav>
 
-	<div class="box">
-		<h2>Driving Field Training Officers (FTOs)</h2>
-		<table>
-			<thead>
-				<tr>
-					<th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-					<th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td>Alexander</td><td>Phillip</td></tr>
-				<tr><td>Ardanz</td><td>Pax</td></tr>
-				<tr><td>Barakat</td><td>Emma</td></tr>
-				<tr><td>Bell</td><td>Walter</td></tr>
-				<tr><td>Carretero</td><td>Jason</td></tr>
-				<tr><td>Carvache</td><td>Segundo</td></tr
-				<tr><td>Cunningham</td><td>Anthony</td></tr>
-				<tr><td>Demateis</td><td>Joseph</td></tr>
-				<tr><td>Fulton</td><td>Dawan</td></tr>
-				<tr><td>Gandhi</td><td>Nevan</td></tr>
-				<tr><td>Harris</td><td>Tyler</td></tr>
-				<tr><td>Jehangir</td><td>Kaizad</td></tr>
-				<tr><td>Kaufman</td><td>Alexander</td></tr>
-				<tr><td>Lebovits</td><td>Chaim</td></tr>
-				<tr><td>Leth</td><td>Ross</td></tr>
-				<tr><td>Mendoza</td><td>Eric</td></tr>
-				<tr><td>Molina</td><td>Angel</td></tr>
-				<tr><td>Monrroy</td><td>Christopher</td></tr>
-				<tr><td>Oestreich</td><td>Michael</td></tr>
-				<tr><td>Parriott</td><td>Renee</td></tr>
-				<tr><td>Raj</td><td>Rishabh</td></tr>
-				<tr><td>Rusko</td><td>Yuriy</td></tr>
-				<tr><td>Saied</td><td>Youssef</td></tr>
-				<tr><td>Shaw</td><td>Sandy</td></tr>
-				<tr><td>Smith</td><td>Syheed</td></tr>
-				<tr><td>Vasquez</td><td>Brandon</td></tr>
-				<tr><td>Zelasko</td><td>Joe</td></tr>
-			</tbody>
-		</table>
-	</div>
+    <div class="box" id="trainees">
+        <h2>Cleared for Driver Training</h2>
+        <table id="table-trainees">
+            <thead>
+                <tr>
+                    <th class="col-last" onclick="sortTable(this, 0)"><div class="th-wrap">Last Name<span class="arrow"></span></div></th>
+                    <th class="col-first" onclick="sortTable(this, 1)"><div class="th-wrap">Given Names<span class="arrow"></span></div></th>
+                    <th class="col-cool" onclick="sortTable(this, 2)"><div class="th-wrap">Status<span class="arrow"></span></div></th>
+                    <th class="col-date" onclick="sortTable(this, 3)"><div class="th-wrap">Date Added<span class="arrow"></span></div></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-	<div class="box">
-		<h2>Cleared Drivers</h2>
-		<table>
-			<thead>
-				<tr>
-					<th onclick="sortTable(this, 0)">Last Name<span class="arrow"></span></th>
-					<th onclick="sortTable(this, 1)">Given Names<span class="arrow"></span></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td>Ahmed</td><td>Prince</td></tr>
-				<tr><td>Alkasem</td><td>Bachar</td></tr>
-				<tr><td>Alley</td><td>Lauren M</td></tr>
-				<tr><td>Bambico</td><td>Justin</td></tr>
-				<tr><td>Barsky</td><td>Veronica</td></tr>
-				<tr><td>Benounane</td><td>Hafeda</td></tr>
-				<tr><td>Calvert</td><td>Robert</td></tr>
-				<tr><td>Carrada-Lopez</td><td>Jaddeliz</td></tr>
-				<tr><td>Campos</td><td>Miquel</td></tr>
-				<tr><td>Cardenas</td><td>Catherine</td></tr>
-				<tr><td>Covan</td><td>Alexander</td></tr>
-				<tr><td>Darts</td><td>Julian</td></tr>
-				<tr><td>Decowski</td><td>Alan</td></tr>
-				<tr><td>Delgado</td><td>Emily</td></tr>
-				<tr><td>Desrosier</td><td>Amani</td></tr>
-				<tr><td>Franco</td><td>Jeaninne</td></tr>
-				<tr><td>Garcia-Alvarado</td><td>Alejandro</td></tr>
-				<tr><td>Garcia</td><td>Franzine</td></tr>
-				<tr><td>Gear</td><td>Daniel</td></tr>
-				<tr><td>Gomez</td><td>Ryan</td></tr>
-				<tr><td>Hadzic</td><td>Luka</td></tr>
-				<tr><td>Harris</td><td>Mark</td></tr>
-				<tr><td>Harris</td><td>Tyler</td></tr>
-				<tr><td>Hayes</td><td>Paul</td></tr>
-				<tr><td>Higgins</td><td>Sophia</td></tr>
-				<tr><td>Hoffman</td><td>Christopher</td></tr>
-				<tr><td>Javed</td><td>Hamza</td></tr>
-				<tr><td>Kesavan</td><td>Mithul</td></tr>
-				<tr><td>Kostelnik</td><td>Jack</td></tr>
-				<tr><td>Kothamasu</td><td>Harichandana</td></tr>
-				<tr><td>Luna-Gonzalez</td><td>Edwin</td></tr>
-				<tr><td>Maldonado</td><td>Cindy</td></tr>
-				<tr><td>Medina</td><td>Brandon</td></tr>
-				<tr><td>Mercun</td><td>John</td></tr>
-				<tr><td>Molta</td><td>Thomas</td></tr>
-				<tr><td>Mosquera</td><td>Jamie</td></tr>
-				<tr><td>Parikh</td><td>Yash</td></tr>
-				<tr><td>Pereda</td><td>Wendy</td></tr>
-				<tr><td>Romero</td><td>Ariadne</td></tr>
-				<tr><td>Saied</td><td>Youssef</td></tr>
-				<tr><td>Shah</td><td>Shrey</td></tr>
-				<tr><td>Shenbagaraman</td><td>Subbiah</td></tr>
-				<tr><td>Slim</td><td>Maya</td></tr>
-				<tr><td>Souza</td><td>Kimberly</td></tr>
-				<tr><td>Shulkin</td><td>Ann</td></tr>
-				<tr><td>Sung</td><td>Lydia</td></tr>
-				<tr><td>Weintraub</td><td>Herman</td></tr>
-				<tr><td>Weschke</td><td>BJ</td></tr>
-				<tr><td>Wiessler</td><td>Sarah</td></tr>
-				<tr><td>Yang</td><td>Nicole</td></tr>
-			</tbody>
-		</table>
-	</div>
+    <div class="box" id="ftos">
+        <h2>Driving Field Training Officers (FTOs)</h2>
+        <table id="table-ftos">
+            <thead>
+                <tr>
+                    <th class="col-last" onclick="sortTable(this, 0)"><div class="th-wrap">Last Name<span class="arrow"></span></div></th>
+                    <th class="col-first" onclick="sortTable(this, 1)"><div class="th-wrap">Given Names<span class="arrow"></span></div></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-	<script>
-		function sortTable(header, colIndex) {
-			const table = header.closest("table");
-			const tbody = table.querySelector("tbody");
-			const rows = Array.from(tbody.rows);
+    <div class="box" id="cleared">
+        <h2>Cleared Drivers</h2>
+        <table id="table-cleared">
+            <thead>
+                <tr>
+                    <th class="col-last" onclick="sortTable(this, 0)"><div class="th-wrap">Last Name<span class="arrow"></span></div></th>
+                    <th class="col-first" onclick="sortTable(this, 1)"><div class="th-wrap">Given Names<span class="arrow"></span></div></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-			const isAsc = header.classList.contains("asc");
-			rows.sort((a, b) => {
-				const cellA = a.cells[colIndex].innerText.toLowerCase();
-				const cellB = b.cells[colIndex].innerText.toLowerCase();
+    <script>
+        /**
+         * DATA LISTS
+         * Format is now: First Name ; Last Name ; [Other Columns]
+         */
+        const dataTrainees = `
+            Daniel ; Adames ; EMT ; 2025.10.25
+            Sohaib ; Akl ; Obs. ; 2025.09.16
+            Alexandra ; Bilotto ; Obs. ; 2024.12.07
+            Chloe ; Borentain ; EMT ; 2025.12.18
+            Clea ; Chelala ; EMT ; 2025.10.02
+            Sofia ; Devito ; EMT ; 2025.12.29
+            Vivien ; Garcia ; Obs. ; 2025.01.27
+            Sophia ; Goswami ; Obs. ; 2025.10.07
+            Chaimae ; Gouya ; Obs. ; 2025.06.10
+            Elizabeth ; Griggs ; Obs. ; 2026.01.02
+            Nariya ; Henderson ; Obs. ; 2025.11.15
+            Tara ; Khosla ; Obs ; 2025.05.03
+            Joseph ; Letizia ; Obs ; 2026.01.02
+            Isaiah Zachary ; Liu ; EMT ; 2025.02.24
+            Anastasia ; Merisier ; Obs. ; 2025.08.26
+            Vrinda ; Modi ; EMT ; 2024.12.14
+            Emily ; Moreno ; Obs. ; 2025.10.20
+            Azza ; Moustafa ; EMT ; 2025.10.02
+            Nicolas ; Nuila ; EMT ; 2025.11.08
+            Adam ; Okun ; EMT ; 2025.11.15
+            Angie ; Ortega ; Obs. ; 2025.12.30
+            Melanie ; Perez ; Obs. ; 2025.12.29
+            Tianna ; Spitz ; EMT ; 2025.12.29
+            Maya Samara ; Sternberg ; EMT ; 2025.06.10
+            Gabriela ; Zaro ; EMT ; 2026.01.05
+        `;
 
-				if (cellA < cellB) return isAsc ? 1 : -1;
-				if (cellA > cellB) return isAsc ? -1 : 1;
-				return 0;
-			});
+        const dataFTOs = `
+            Phillip ; Alexander
+            Pax ; Ardanz
+            Emma ; Barakat
+            Walter ; Bell
+            Jason ; Carretero
+            Segundo ; Carvache
+            Anthony ; Cunningham
+            Joseph ; Demateis
+            Dawan ; Fulton
+            Nevan ; Gandhi
+            Tyler ; Harris
+            Kaizad ; Jehangir
+            Alexander ; Kaufman
+            Chaim ; Lebovits
+            Ross ; Leth
+            Eric ; Mendoza
+            Angel ; Molina
+            Christopher ; Monrroy
+            Michael ; Oestreich
+            Renee ; Parriott
+            Rishabh ; Raj
+            Yuriy ; Rusko
+            Youssef ; Saied
+            Sandy ; Shaw
+            Syheed ; Smith
+            Brandon ; Vasquez
+            Joe ; Zelasko
+        `;
 
-			tbody.append(...rows);
+        const dataCleared = `
+            Prince ; Ahmed
+            Bachar ; Alkasem
+            Lauren M ; Alley
+            Justin ; Bambico
+            Veronica ; Barsky
+            Hafeda ; Benounane
+            Robert ; Calvert
+            Jaddeliz ; Carrada-Lopez
+            Miquel ; Campos
+            Catherine ; Cardenas
+            Alexander ; Covan
+            Julian ; Darts
+            Alan ; Decowski
+            Emily ; Delgado
+            Amani ; Desrosier
+            Jeaninne ; Franco
+            Alejandro ; Garcia-Alvarado
+            Franzine ; Garcia
+            Daniel ; Gear
+            Ryan ; Gomez
+            Luka ; Hadzic
+            Mark ; Harris
+            Tyler ; Harris
+            Paul ; Hayes
+            Sophia ; Higgins
+            Christopher ; Hoffman
+            Hamza ; Javed
+            Mithul ; Kesavan
+            Jack ; Kostelnik
+            Harichandana ; Kothamasu
+            Edwin ; Luna-Gonzalez
+            Cindy ; Maldonado
+            Brandon ; Medina
+            John ; Mercun
+            Thomas ; Molta
+            Jamie ; Mosquera
+            Yash ; Parikh
+            Wendy ; Pereda
+            Ariadne ; Romero
+            Youssef ; Saied
+            Shrey ; Shah
+            Subbiah ; Shenbagaraman
+            Maya ; Slim
+            Kimberly ; Souza
+            Ann ; Shulkin
+            Lydia ; Sung
+            Herman ; Weintraub
+            BJ ; Weschke
+            Sarah ; Wiessler
+            Nicole ; Yang
+        `;
 
-			// Reset all headers
-			table.querySelectorAll("th").forEach(th => {
-				th.classList.remove("asc", "desc");
-			});
+        function buildTable(tableId, rawData) {
+            const tbody = document.querySelector(`#${tableId} tbody`);
+            const rows = rawData.trim().split('\n');
+            
+            rows.forEach(rowText => {
+                const columns = rowText.split(';').map(col => col.trim());
+                if (columns.length < 2) return;
 
-			// Add the correct class to the current header
-			header.classList.toggle("asc", !isAsc);
-			header.classList.toggle("desc", isAsc);
-		}
+                // DATA ORDER: 0=First, 1=Last
+                const firstName = columns[0];
+                const lastName = columns[1];
 
-		// Default sort by last name on page load
-		document.addEventListener("DOMContentLoaded", () => {
-			document.querySelectorAll("table").forEach(table => {
-				const defaultHeader = table.querySelector("th:nth-child(1)");
-				sortTable(defaultHeader, 0);
-			});
-		});
-	</script>
+                const tr = document.createElement('tr');
+
+                // Create Last Name cell (maps to Col 0 in table)
+                const tdLast = document.createElement('td');
+                tdLast.textContent = lastName;
+                tdLast.className = 'col-last';
+                tr.appendChild(tdLast);
+
+                // Create First Name cell (maps to Col 1 in table)
+                const tdFirst = document.createElement('td');
+                tdFirst.textContent = firstName;
+                tdFirst.className = 'col-first';
+                tr.appendChild(tdFirst);
+
+                // Add any additional columns (Status, Date, etc.)
+                for (let i = 2; i < columns.length; i++) {
+                    const tdExtra = document.createElement('td');
+                    tdExtra.textContent = columns[i];
+                    tr.appendChild(tdExtra);
+                }
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        function sortTable(header, colIndex) {
+            const table = header.closest("table");
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.rows);
+            const isAsc = header.classList.contains("asc");
+            
+            rows.sort((a, b) => {
+                let cellA = a.cells[colIndex].innerText.toLowerCase();
+                let cellB = b.cells[colIndex].innerText.toLowerCase();
+                return isAsc ? cellB.localeCompare(cellA) : cellA.localeCompare(cellB);
+            });
+
+            tbody.append(...rows);
+            table.querySelectorAll("th").forEach(th => th.classList.remove("asc", "desc"));
+            header.classList.toggle("asc", !isAsc);
+            header.classList.toggle("desc", isAsc);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            buildTable('table-trainees', dataTrainees);
+            buildTable('table-ftos', dataFTOs);
+            buildTable('table-cleared', dataCleared);
+
+            document.querySelectorAll("table").forEach(table => {
+                const defaultHeader = table.querySelector("th:nth-child(1)");
+                if (defaultHeader) sortTable(defaultHeader, 0);
+            });
+        });
+    </script>
 </body>
 </html>
