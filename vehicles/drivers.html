@@ -11,7 +11,12 @@
             --hover-bg: #f1f3f5;
             --accent-color: #0056b3;
         }
+
+        /* Ensure padding doesn't affect the width of elements */
+        * { box-sizing: border-box; }
+
         html { scroll-behavior: smooth; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             margin: 20px;
@@ -19,20 +24,35 @@
             background-color: #f4f7f6;
             color: #333;
         }
-        .index-nav {
+
+        /* Navigation and Content Boxes now share identical sizing and margins */
+        .index-nav, .box {
             max-width: 900px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 25px auto;
             background: white;
-            padding: 15px;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
+        }
+
+        .index-nav {
+            padding: 15px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: space-between;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .index-nav b { font-size: 0.9rem; color: #666; text-transform: uppercase; }
+        
         .index-nav a {
             text-decoration: none;
             color: var(--accent-color);
@@ -43,16 +63,58 @@
             background-color: #f0f4f8;
             transition: all 0.2s;
         }
+
         .index-nav a:hover { background-color: var(--accent-color); color: white; }
-        .box {
-            background: white;
-            padding: 20px;
-            margin: 0 auto 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            max-width: 900px;
-            border: 1px solid var(--border-color);
+
+        /* Search Bar Wrapper */
+        .search-wrapper {
+            position: relative;
+            flex-grow: 1;
+            min-width: 250px;
+            max-width: 350px;
+            display: flex;
+            align-items: center;
         }
+
+        #memberSearch {
+            width: 100%;
+            padding: 8px 35px 8px 15px;
+            border: 2px solid #eee;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        #memberSearch:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+        }
+
+        /* CORRECTED "X" vertical alignment */
+        #clearSearch {
+            position: absolute;
+            right: 12px;
+            cursor: pointer;
+            color: #ccc;
+            font-size: 1.4rem;
+            font-weight: 300;
+            display: none;
+            line-height: 1;
+            user-select: none;
+            top: 50%;
+            transform: translateY(-55%); /* Centers perfectly vertically */
+        }
+
+        #clearSearch:hover { color: #888; }
+
+        .box {
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .box.hidden { display: none; }
+
         h2 {
             margin-top: 0;
             margin-bottom: 15px;
@@ -60,7 +122,27 @@
             color: #2c3e50;
             border-bottom: 2px solid #eee;
             padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+        
+        .back-to-top {
+            font-size: 0.75rem;
+            text-decoration: none;
+            color: #999;
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            font-weight: normal;
+            transition: all 0.2s;
+        }
+        .back-to-top:hover {
+            background: #eee;
+            color: var(--accent-color);
+        }
+
         table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
         th {
             cursor: pointer;
@@ -75,7 +157,6 @@
         td { border: 1px solid var(--border-color); padding: 10px; vertical-align: middle; }
         tr:hover td { background-color: var(--hover-bg); }
         
-        /* Column Widths */
         .col-last { width: 25%; }
         .col-first { width: 30%; }
 
@@ -87,6 +168,8 @@
 
         @media (max-width: 600px) {
             body { margin: 10px; }
+            .index-nav { flex-direction: column; align-items: stretch; }
+            .search-wrapper { max-width: 100%; }
             .box { padding: 12px; }
             th, td { padding: 8px 5px; font-size: 0.82em; }
         }
@@ -94,15 +177,24 @@
 </head>
 <body>
 
-    <nav class="index-nav">
-        <b>Jump to:</b>
-        <a href="#trainees">Trainees</a>
-        <a href="#cleared">Cleared Drivers</a>
-        <a href="#ftos">Driving Field Training Officers (FTOs)</a>
+    <nav class="index-nav" id="top-nav">
+        <div class="nav-links">
+            <b>Jump to:</b>
+            <a href="#trainees">Trainees</a>
+            <a href="#cleared">Cleared Drivers</a>
+            <a href="#ftos">Driving Field Training Officers (FTOs)</a>
+        </div>
+        <div class="search-wrapper">
+            <input type="text" id="memberSearch" placeholder="Type to search..." autocomplete="off">
+            <span id="clearSearch" title="Clear search">&times;</span>
+        </div>
     </nav>
 
     <div class="box" id="trainees">
-        <h2>Cleared for Driver Training</h2>
+        <h2>
+            Drivers in Training
+            <a href="#top-nav" class="back-to-top">Top ↑</a>
+        </h2>
         <table id="table-trainees">
             <thead>
                 <tr>
@@ -117,7 +209,10 @@
     </div>
 
     <div class="box" id="ftos">
-        <h2>Driving Field Training Officers (FTOs)</h2>
+        <h2>
+            Driving Field Training Officers (FTOs)
+            <a href="#top-nav" class="back-to-top">Top ↑</a>
+        </h2>
         <table id="table-ftos">
             <thead>
                 <tr>
@@ -130,7 +225,10 @@
     </div>
 
     <div class="box" id="cleared">
-        <h2>Cleared Drivers</h2>
+        <h2>
+            Cleared Drivers
+            <a href="#top-nav" class="back-to-top">Top ↑</a>
+        </h2>
         <table id="table-cleared">
             <thead>
                 <tr>
@@ -143,10 +241,6 @@
     </div>
 
     <script>
-        /**
-         * DATA LISTS
-         * Format is now: First Name ; Last Name ; [Other Columns]
-         */
         const dataTrainees = `
             Daniel ; Adames ; EMT ; 2025.10.25
             Sohaib ; Akl ; Obs. ; 2025.09.16
@@ -266,31 +360,25 @@
                 const columns = rowText.split(';').map(col => col.trim());
                 if (columns.length < 2) return;
 
-                // DATA ORDER: 0=First, 1=Last
                 const firstName = columns[0];
                 const lastName = columns[1];
-
                 const tr = document.createElement('tr');
 
-                // Create Last Name cell (maps to Col 0 in table)
                 const tdLast = document.createElement('td');
                 tdLast.textContent = lastName;
                 tdLast.className = 'col-last';
                 tr.appendChild(tdLast);
 
-                // Create First Name cell (maps to Col 1 in table)
                 const tdFirst = document.createElement('td');
                 tdFirst.textContent = firstName;
                 tdFirst.className = 'col-first';
                 tr.appendChild(tdFirst);
 
-                // Add any additional columns (Status, Date, etc.)
                 for (let i = 2; i < columns.length; i++) {
                     const tdExtra = document.createElement('td');
                     tdExtra.textContent = columns[i];
                     tr.appendChild(tdExtra);
                 }
-
                 tbody.appendChild(tr);
             });
         }
@@ -313,6 +401,45 @@
             header.classList.toggle("desc", isAsc);
         }
 
+        function initSearch() {
+            const searchInput = document.getElementById('memberSearch');
+            const clearBtn = document.getElementById('clearSearch');
+            
+            searchInput.addEventListener('input', function() {
+                const term = this.value.toLowerCase().trim();
+                const boxes = document.querySelectorAll('.box');
+
+                clearBtn.style.display = (this.value.length > 0) ? "block" : "none";
+
+                boxes.forEach(box => {
+                    const rows = box.querySelectorAll('tbody tr');
+                    let matchesInBox = 0;
+
+                    rows.forEach(row => {
+                        const content = row.textContent.toLowerCase();
+                        if (content.includes(term)) {
+                            row.style.display = "";
+                            matchesInBox++;
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+
+                    if (matchesInBox === 0 && term !== "") {
+                        box.classList.add('hidden');
+                    } else {
+                        box.classList.remove('hidden');
+                    }
+                });
+            });
+
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = "";
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.focus();
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             buildTable('table-trainees', dataTrainees);
             buildTable('table-ftos', dataFTOs);
@@ -322,6 +449,8 @@
                 const defaultHeader = table.querySelector("th:nth-child(1)");
                 if (defaultHeader) sortTable(defaultHeader, 0);
             });
+
+            initSearch();
         });
     </script>
 </body>
