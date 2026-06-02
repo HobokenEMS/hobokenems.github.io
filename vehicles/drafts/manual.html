@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HVAC Driver Training Manual</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 10px;
+        line-height: 1.5;
+        max-width: 900px;
+      }
+      h1 {
+        font-size: 1.5em;
+        margin-block-end: 0.2em;
+      }
+      h2 {
+        margin-block-start: 0.8em;
+        margin-block-end: 0.4em;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 4px;
+      }
+      h3 {
+        margin-block-end: 0.2em;
+      }
+      h4 {
+        margin-block-end: 0.2em;
+        margin-block-start: 0.8em;
+      }
+      .meta {
+        font-size: 0.8em;
+        color: #555;
+        margin-bottom: 12px;
+      }
+      .tag {
+        display: inline-block;
+        font-size: 0.7em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        background: #eef;
+        border: 1px solid #ccd;
+        border-radius: 3px;
+        padding: 1px 6px;
+        vertical-align: middle;
+        color: #334;
+      }
+      .box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .note {
+        border-left: 4px solid #6a9;
+        background: #f3f8f6;
+        padding: 8px 10px;
+        margin: 10px 0;
+        font-size: 0.95em;
+      }
+      .todo {
+        border-left: 4px solid #d8a200;
+        background: #fdf6e3;
+        padding: 8px 10px;
+        margin: 10px 0;
+        font-size: 0.95em;
+      }
+      .todo b {
+        color: #8a6a00;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        text-align: left;
+        word-wrap: break-word;
+        font-size: 0.85em;
+        vertical-align: top;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      .toc a {
+        text-decoration: none;
+      }
+      code {
+        background: #f0f0f0;
+        padding: 0 3px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HVAC Driver Training Manual</h1>
+    <div class="meta">
+      <b>Vehicles Department</b> &middot;
+      <a href="mailto:vehicles@hobokenems.com">vehicles@hobokenems.com</a><br />
+      Lt. Yuriy Rusko (212) 518-7668 &middot; Sgt. Herman Weintraub (347) 263-0072<br />
+      Canonical document &middot; supersedes <code>hvacDriverTrain.pdf</code> &middot;
+      Last updated: 2026-06-02
+    </div>
+
+    <div class="todo">
+      <b>Maintainer note.</b> This revision migrates the content of the former
+      prose guide into the modular structure. Items still requiring a subject
+      matter expert are flagged inline in amber. The open punch list is collected
+      at the bottom under <a href="#punchlist">Outstanding items</a>.
+    </div>
+
+    <h2>Overview</h2>
+    <div class="note">
+      <b>Scope.</b> This manual is the HVAC-specific layer of driver training. It
+      covers our vehicles, local operations and procedures, and the on-the-job
+      competencies a driver is signed off on. It does not teach the general theory
+      and skills of safe emergency-vehicle operation &ndash; defensive driving,
+      the law, intersection negotiation, and vehicle dynamics &ndash; which are
+      the subject of the national Emergency Vehicle Operator Course (EVOC). HVAC
+      does not require EVOC, but recommends it as a foundation; see the companion
+      <a href="evoc.html">EVOC reference guide</a> for an overview of those topics.
+    </div>
+    <p>
+      First and foremost, this isn't just a training manual for drivers &ndash;
+      it is intended as a reference for all HVAC members, since everyone should
+      know the basics about the vehicles they ride in. Awareness is key. This
+      manual is divided into three modules:
+    </p>
+    <ol>
+      <li><b>Introduction to Vehicles:</b> required for all members.</li>
+      <li>
+        <b>Introduction to Emergency Vehicles:</b> required for all members with
+        a driver's license.
+      </li>
+      <li>
+        <b>Emergency Vehicle Operations:</b> required for all driver trainees.
+      </li>
+    </ol>
+    <p>
+      As members get closer to driver training, they progress through the
+      modules. This structure is necessary because non-driver members may be
+      called upon to drive other vehicles, such as an ambulance or the
+      supervisor's vehicle, in urgent situations. All members with a driver's
+      license should be, at minimum, capable of operating emergency vehicles in
+      a non-emergency mode safely and expeditiously.
+    </p>
+
+    <div class="note">
+      <b>Responsibilities and goals.</b> As a driver, you are responsible for
+      the safety of the crew, the patient, and others, including family members,
+      police officers, and paramedics. A previous Vehicles Department adopted the
+      motto <i>"Slow is smooth, smooth is fast."</i> Keep that in mind, with the
+      goal of getting through the shift safely while supporting excellent patient
+      care. Before scheduling road training with an FTO, you should know where
+      each piece of equipment is located across the different ambulances in the
+      fleet.
+    </div>
+
+    <div class="box toc">
+      <b>Contents</b>
+      <ul>
+        <li><a href="#mod1">Section I &ndash; Introduction to Vehicles</a></li>
+        <li><a href="#mod2">Section II &ndash; Introduction to Emergency Vehicles</a></li>
+        <li><a href="#mod3">Section III &ndash; Emergency Vehicle Operations</a></li>
+        <li><a href="#accidents">Vehicle Contact and Accidents</a></li>
+        <li><a href="#hospitals">Reference &ndash; Common Hospital Destinations</a></li>
+        <li><a href="#phones">Reference &ndash; Phone Numbers</a></li>
+        <li><a href="#fueling">Reference &ndash; Fueling</a></li>
+        <li><a href="#forms">Reference &ndash; Forms</a></li>
+        <li><a href="#punchlist">Outstanding items</a></li>
+      </ul>
+    </div>
+
+    <!-- ===================== MODULE I ===================== -->
+    <h2 id="mod1">Section I: Introduction to Vehicles <span class="tag">All members</span></h2>
+
+    <h3>Truck Familiarization</h3>
+    <p>
+      The fleet includes two ambulance body styles. The Type III units are "box"
+      ambulances, with a modular patient box on a cutaway van chassis; they weigh
+      on the order of 14,000 lbs, and the rear box creates an overhang that swings
+      during turns (see <a href="#overhang">Overhang and blind spots</a>). The
+      Type II units are van ambulances, with an integrated raised-roof van body
+      rather than a separate box; they are lighter and tend to be more
+      maneuverable. Members should be able to identify each rig; learning each
+      rig's supplies, equipment locations, and controls is the trainee's
+      responsibility, as described below.
+    </p>
+
+    <h4>Ambulances</h4>
+    <table>
+      <tr>
+        <th style="width: 14%">Unit</th>
+        <th style="width: 16%">Body type</th>
+        <th style="width: 22%">State certified</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>921</td>
+        <td>Type III (box)</td>
+        <td>No &ndash; volunteer ambulance</td>
+        <td>
+          Operates as a "volunteer" ambulance: may run with one EMT and a driver,
+          and no billing is performed for 921 responses.
+        </td>
+      </tr>
+      <tr>
+        <td>922</td>
+        <td>Type III (box)</td>
+        <td>Yes</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>923</td>
+        <td>Type III (box)</td>
+        <td>Yes</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>417</td>
+        <td>Type II (van)</td>
+        <td>Yes</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>823</td>
+        <td>Type II (van)</td>
+        <td>Yes</td>
+        <td></td>
+      </tr>
+    </table>
+    <p style="font-size: 0.85em; color: #555">
+      Five ambulances in total; four are state certified, and 921 is the
+      non-certified volunteer unit.
+    </p>
+
+    <h4>Special operations and support vehicles (non-transport)</h4>
+    <table>
+      <tr>
+        <th style="width: 14%">Unit</th>
+        <th style="width: 22%">Type</th>
+        <th>Role</th>
+      </tr>
+      <tr>
+        <td>Charlie</td>
+        <td>SUV (supervisor)</td>
+        <td>Also referred to as the flycar. Response only; not used for patient transport.</td>
+      </tr>
+      <tr>
+        <td>Delta</td>
+        <td>Cart-style special operations vehicle</td>
+        <td>Special operations use.</td>
+      </tr>
+    </table>
+    <h4>Rig checks and equipment locations</h4>
+    <p>
+      It is each trainee's responsibility to become familiar with the supplies
+      carried on every rig and where they are located. Use each rig's driver rig
+      check to learn its inventory and layout; the rig check for each unit is
+      linked below.
+    </p>
+    <ul>
+      <li>921 &ndash; <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUQzBYSEhONzdTRjc0N0hMRDNBQ1FTWlQ1Ni4u&origin=QRCode" target="_blank" rel="noopener">driver rig check</a></li>
+      <li>922 &ndash; <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUN1dKUlBTM1VBTlYxRzZSVlpMSFhKUlFMVS4u&origin=QRCode" target="_blank" rel="noopener">driver rig check</a></li>
+      <li>923 &ndash; <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUMEZZMVY5SUM2VVc4RUE5QU1LM1E3MDVTTy4u&origin=QRCode" target="_blank" rel="noopener">driver rig check</a></li>
+      <li>417 &ndash; <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUOUJLUkdHMk41SkJLQUg3NjFSNzFTQUhGMi4u&origin=QRCode" target="_blank" rel="noopener">driver rig check</a></li>
+      <li>823 &ndash; driver rig check: <i>link to be supplied</i></li>
+    </ul>
+
+    <h4>Controls and consoles vary by rig</h4>
+    <p>
+      The rigs are not identical to operate. Controls differ from truck to truck:
+      for example, 922 uses electronic push-buttons where other trucks use manual
+      switches, the light and siren controls differ slightly between units, and
+      the built-in radios are not the same across the fleet. A driver must be able
+      to operate each rig's controls confidently. Demonstrating competent
+      operation of each rig is part of advancing from Level 1 to Level 2.
+    </p>
+
+    <h3>General Driving Policies</h3>
+    <ul>
+      <li>Follow the rig rotation on the whiteboard in the garage.</li>
+      <li>Perform a rig check, and report any issues to the Vehicles Department.</li>
+      <li>Carry a D-1 radio.</li>
+      <li>Park ambulances inside and on a shoreline when not in use.</li>
+      <li>Use a spotter when backing up.</li>
+      <li>When leaving the city to get gas, the crew chief informs HPD.</li>
+      <li>Make sure the vehicle is clean at the end of the shift.</li>
+      <li>No open food or drink in the vehicle, and no vaping or smoking.</li>
+      <li>No loose items on the dashboard, such as glove boxes or food.</li>
+      <li>Follow traffic rules, especially when using lights and sirens.</li>
+      <li>Report any damage or incidents.</li>
+    </ul>
+    <div class="note">
+      Most rigs are state certified. If an inspector sees loose items on the
+      dashboard of a certified rig, that is an example of a finable offense. Keep
+      the rig clean and items secured.
+    </div>
+
+    <h3>Policies: Lights and Sirens, Other Vehicles</h3>
+    <p>
+      Lights and sirens assist navigation through traffic, but they do not change
+      the laws that apply to the driver (covered in Section II). The supervisor's
+      vehicle (Charlie, also called the flycar) is an SUV used for response only,
+      not patient transport, and may be operated by members with a valid driver's
+      license in urgent situations. It handles differently from a box ambulance.
+    </p>
+
+    <!-- ===================== MODULE II ===================== -->
+    <h2 id="mod2">Section II: Introduction to Emergency Vehicles <span class="tag">Members with a driver's license</span></h2>
+
+    <h3>Definitions: The Law</h3>
+    <p>
+      Important reminder: HVAC must follow the same laws as any civilian vehicle.
+      We do not have the exemptions that FD or PD enjoy. Lights and sirens are not
+      a waiver of liability. You may be held responsible for an accident you cause
+      while responding or transporting. You are in charge of the vehicle; if you
+      judge it unsafe to proceed through a crowded intersection, do not proceed.
+    </p>
+    <p>So:</p>
+    <ul>
+      <li>NO SPEEDING.</li>
+      <li>NO "wrong way" driving.</li>
+      <li>
+        DO NOT pass a school bus when its stop sign and flashing red lights are
+        activated.
+      </li>
+      <li>DO NOT cross railroad tracks when the red light is activated.</li>
+    </ul>
+    <p>
+      The vast majority of calls are within a few miles of the hospital. Higher
+      speed may shave a few minutes off a trip, but it greatly increases the
+      possibility of an accident. A relevant data summary is worth reading:
+      <a
+        href="https://www.usfa.fema.gov/blog/nhtsa-publishes-data-on-ground-ambulance-crashes"
+        target="_blank"
+        rel="noopener"
+        >NHTSA data on ground ambulance crashes</a
+      >.
+    </p>
+
+    <h3>Response Types</h3>
+    <p>
+      Hoboken dispatch does not use response codes, but sometimes uses phrases
+      that imply the response type. For example, an instruction to "check one
+      out" at a location is typically a non-urgent response. An urgent response
+      uses lights and sirens; a non-urgent response does not. A quick conversation
+      with your crew chief can confirm the response type, and it may change
+      en route, so be ready for that.
+    </p>
+
+    <h3>Sterile Response</h3>
+    <p>
+      During a response, limit unrelated conversation, and be a good passenger so
+      the driver can concentrate.
+    </p>
+
+    <h3>Warning Devices: Appropriate Use</h3>
+    <ul>
+      <li>
+        <b>Why?</b> EMTs are expected to determine whether the patient needs a
+        lights-and-sirens transport. Drivers are expected to assess environmental
+        and operational conditions, such as weather, roads, traffic, and distance,
+        and to determine whether honoring the EMT's directive would be safe.
+      </li>
+    </ul>
+    <div class="note">
+      <b>Siren operation.</b> Drivers stopped ahead of you at a red light are not
+      equipped with the same visual or audible warnings you have, so do not force
+      them through an intersection by blaring your siren, as it is unsafe for them
+      to proceed. Stay collected and professional; displaying anger will not
+      change the situation and only raises everyone's stress level. If an incident
+      results, you may be held responsible.
+    </div>
+
+    <!-- ===================== MODULE III ===================== -->
+    <h2 id="mod3">Section III: Emergency Vehicle Operations <span class="tag">Driver trainees</span></h2>
+
+    <div class="box">
+      <h3>Driver trainee progression</h3>
+      <p>
+        Driver training is a graduated progression through three levels of
+        increasing independence. To enter Level 1, a trainee must have submitted
+        and had reviewed all paperwork (driver's license and abstract), hold a
+        valid current driver's license, passed the quiz on this manual and the
+        <a href="evoc.html">EVOC reference guide</a>, and been cleared on the rig
+        check and on the location of all ambulance contents.
+      </p>
+      <table>
+        <tr>
+          <th style="width: 12%">Level</th>
+          <th style="width: 30%">Permits</th>
+          <th style="width: 26%">Supervision</th>
+          <th>Advancement</th>
+        </tr>
+        <tr>
+          <td>Level 1</td>
+          <td>Non-emergent driving (no lights or sirens)</td>
+          <td>FTO in the front seat</td>
+          <td>After a minimum of three shifts, any FTO may clear the trainee to Level 2</td>
+        </tr>
+        <tr>
+          <td>Level 2</td>
+          <td>Emergent driving (lights and sirens)</td>
+          <td>FTO in the front seat</td>
+          <td>After a minimum of three shifts, any FTO may clear the trainee to Level 3</td>
+        </tr>
+        <tr>
+          <td>Level 3</td>
+          <td>Emergent driving (lights and sirens)</td>
+          <td>FTO anywhere in the ambulance</td>
+          <td>
+            After a minimum of three shifts and a recommendation from two FTOs,
+            the Vehicles Lt or Sgt may clear the trainee to full driver status
+          </td>
+        </tr>
+      </table>
+      <p style="font-size: 0.85em; color: #555">
+        The per-level skill checks, the quizzes, and the FTO sign-off records are
+        maintained in the separate
+        <a href="taskbook.html">Driver Trainee Task Book</a>. This overview covers
+        the gating logic only; the task book is the
+        single source for the checks and criteria.
+      </p>
+    </div>
+
+    <p>
+      The following are the competency tasks an FTO signs off on across the
+      levels. They follow the arc of a shift, from preparation through return to
+      base.
+    </p>
+    <div class="todo">
+      <b>To confirm.</b> Task numbering, sequence, and prerequisites below are a
+      proposed structure for FTO review. Adjust to match the actual sign-off order
+      the Vehicles Department uses.
+    </div>
+
+    <div class="box">
+      <h3>Task 3.1 &ndash; Beginning of Shift: Preparation and Startup</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Sections I and II reviewed.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Checks the rig rotation board on entering
+            the building<br />
+            <input type="checkbox" /> Signs in on the duty shift iPad<br />
+            <input type="checkbox" /> Collects the tablet for the driver checklist
+            and the D-1 radio assigned to the vehicle<br />
+            <input type="checkbox" /> Locates the keys (outside: whiteboard by the
+            stairs; inside: by the whiteboard)<br />
+            <input type="checkbox" /> Sets seat and mirrors, and buckles the
+            seatbelt<br />
+            <input type="checkbox" /> Starts the vehicle correctly: key in
+            ignition, waits for dashboard lights to turn OFF, then starts the
+            engine<br />
+            <input type="checkbox" /> Exits the bay with headlights and emergency
+            lights ON, checking both directions for pedestrians, bikes, and
+            traffic<br />
+            <input type="checkbox" /> Parks outside, engages security mode, and
+            completes the driver checklist
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.2 &ndash; Security Mode</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Task 3.1 in progress.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <b>Activate:</b><br />
+            <input type="checkbox" /> Sets transmission to PARK<br />
+            <input type="checkbox" /> Applies the emergency / parking brake
+            (vehicle idles high)<br />
+            <input type="checkbox" /> Presses the SECURITY button (units 134-2 /
+            922) or the RED button (other units)<br />
+            <input type="checkbox" /> Turns the key as if turning the vehicle off,
+            and removes it from the ignition<br />
+            <br />
+            <b>Deactivate:</b><br />
+            <input type="checkbox" /> Puts the key in the ignition and turns it as
+            if starting the engine, without touching anything else first<br />
+            <input type="checkbox" /> (Units 134-2 / 922 only) presses the
+            SECURITY button<br />
+            <input type="checkbox" /> Applies pressure to the brake pedal, and
+            while holding it, releases the emergency / parking brake
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.3 &ndash; Responding to a Call</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Section II reviewed; Tasks 3.1 and 3.2 complete.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Confirms the response type with the crew
+            chief, and adapts if it changes en route<br />
+            <input type="checkbox" /> Maintains control of a 14,000 lb vehicle and
+            stays within the speed limit<br />
+            <input type="checkbox" /> Observes the law at all times (no speeding,
+            no wrong-way driving, stops for school buses and active railroad
+            signals)<br />
+            <input type="checkbox" /> Negotiates intersections with caution, and
+            does not force stopped traffic through<br />
+            <input type="checkbox" /> Declines to proceed when conditions are
+            unsafe, regardless of lights and sirens
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.4 &ndash; On Scene</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Task 3.3 complete.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Confirms the crew is safe to exit, the
+            vehicle is clear of hazards, and there is a clear path of egress<br />
+            <input type="checkbox" /> Engages security mode, and switches emergency
+            lights from primary to secondary<br />
+            <input type="checkbox" /> Advises the crew which door to use, and
+            accounts for left-side traffic, bikes, and scooters<br />
+            <input type="checkbox" /> Reminds the crew to wear PPE in high-traffic
+            or construction areas, and keeps observers in a safe area<br />
+            <input type="checkbox" /> Has the crew chief request HPD if the vehicle
+            is blocking traffic<br />
+            <input type="checkbox" /> Manages the carrying devices, and confirms
+            required equipment with the crew chief<br />
+            <input type="checkbox" /> Before leaving, confirms nothing and no one
+            is forgotten, and that all are seated and secured
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.5 &ndash; Transport</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Task 3.4 complete.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Confirms the destination and response type
+            with the crew chief<br />
+            <input type="checkbox" /> Drives smoothly while the crew monitors and
+            treats the patient<br />
+            <input type="checkbox" /> Identifies the correct ambulance bay for the
+            destination (see <a href="#hospitals">hospital reference</a>)
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.6 &ndash; At Destination and Back in Service</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Task 3.5 complete.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Leaves space for other units in the bay<br />
+            <input type="checkbox" /> Assists with patient registration and
+            transfer to the hospital bed or seat<br />
+            <input type="checkbox" /> Disposes of dirty linens correctly, and does
+            not place clean linens on a soiled stretcher<br />
+            <input type="checkbox" /> Cleans all equipment that contacted the
+            patient, including bench, seatbelts, and stairchair or Reeves
+            handles<br />
+            <input type="checkbox" /> Decontaminates fully if the patient was
+            contagious, and disposes of trash in proper containers<br />
+            <input type="checkbox" /> Checks fuel, and refuels before dropping
+            below half a tank<br />
+            <input type="checkbox" /> Uses caution leaving the hospital, and has
+            the crew chief check blind spots
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.7 &ndash; Reversing (Into the Garage) and Return to Base</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>
+            Is a driver trainee; has the following tasks complete: Mirror
+            Adjustment, Reversing (General), Spotting.
+          </td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Verbalizes the approach to backing in before
+            beginning<br />
+            <input type="checkbox" /> Turns emergency lights on, and stops
+            immediately after the crosswalk<br />
+            <input type="checkbox" /> Directs one crew member with PPE to hold
+            pedestrian and vehicle traffic, and another to act as in-building
+            spotter<br />
+            <input type="checkbox" /> Puts windows down completely, and turns off
+            all non-essential sounds and screens<br />
+            <input type="checkbox" /> Confirms the garage door is fully open<br />
+            <input type="checkbox" /> Begins the maneuver without turning off the
+            backup alarm<br />
+            <input type="checkbox" /> Keeps the spotter visible in the mirror, and
+            stops immediately if the spotter is lost from view<br />
+            <input type="checkbox" /> Plugs the vehicle into the shoreline
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h3>Task 3.8 &ndash; End of Shift</h3>
+      <table>
+        <tr>
+          <td style="width: 22%">Pre-Requisites</td>
+          <td>Vehicle returned to base.</td>
+        </tr>
+        <tr>
+          <td>Clearing Authority</td>
+          <td>Driver Field Training Officer</td>
+        </tr>
+        <tr>
+          <td>Tasks for Completion</td>
+          <td>
+            <input type="checkbox" /> Turns off the D-1 radio, and returns it to
+            the charging dock, confirming it is charging<br />
+            <input type="checkbox" /> Alerts the next crew to low fuel or any
+            vehicle issue
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="note" id="overhang">
+      <b>Operational note &ndash; Overhang and blind spots.</b> On a Type III box,
+      the overhang is the part of the vehicle from the rear axle (the pivot point)
+      to the rear bumper. On a turn, everything ahead of the rear axle moves in the
+      direction you steer, and the overhang swings the opposite way. On a left
+      turn, watch the passenger-side rear corner; on a right turn, watch the
+      driver-side rear corner. Make sure no one is in that area before turning, and
+      always check mirrors before changing lane, direction, or pace.
+    </div>
+
+    <!-- ===================== ACCIDENTS ===================== -->
+    <h2 id="accidents">Vehicle Contact and Accidents</h2>
+    <p>
+      This applies to every driver, not only to trainees. <b>Any contact involving
+      a corps vehicle is reported, however minor</b> &ndash; a clipped mirror, a
+      backing scrape, or contact with a fixed object &ndash; with no exceptions for
+      damage that looks trivial.
+    </p>
+
+    <h3>At the scene</h3>
+    <p>
+      Is anyone injured? Call HPD right away, give your location, and request
+      additional resources if necessary; treat injuries. If there is no injury,
+      the vehicle is safe to operate, and you were responding or transporting, take
+      information and photos of the damage, then advise HPD that you are resuming.
+      If there are injuries, the vehicle is unsafe, or you were not in response or
+      transport, remain on scene. If the vehicle needs to be towed, call the
+      Vehicles Officers, the 1st Lieutenant, or the Captain. When back available or
+      at the end of the shift, every member of the crew is to complete an
+      <a href="#forms">incident report form</a>.
+    </p>
+
+    <h3>Re-clearance after an incident</h3>
+    <div class="note">
+      Any at-fault or significant vehicle contact suspends the driver's status
+      pending review. Return to driving requires re-clearance by the Vehicles Lt
+      or Sgt, which may include remediation or a drop to a supervised level (a
+      return to Level 2 or Level 1 under an FTO). The corps does not run an annual
+      driver renewal; incident-driven review is the mechanism for confirming
+      continued fitness to drive.
+    </div>
+
+    <!-- ===================== REFERENCE ===================== -->
+    <h2 id="hospitals">Reference: Common Hospital Destinations</h2>
+    <div class="note">
+      <b>Access-restricted content.</b> The codes below are operational access
+      information. They are included on the understanding that this site will be
+      password protected; do not publish this page publicly while the codes are
+      present.
+    </div>
+    <table>
+      <tr>
+        <th style="width: 24%">Hospital</th>
+        <th>Address</th>
+        <th style="width: 26%">Ambulance bay</th>
+        <th style="width: 16%">Access code</th>
+      </tr>
+      <tr>
+        <td>HUMC<br /><span style="font-size: 0.85em; color: #555">Hoboken University Medical Center</span></td>
+        <td>308 Willow Avenue, Hoboken, NJ 07030</td>
+        <td>Bay located on 4th Street</td>
+        <td>9999</td>
+      </tr>
+      <tr>
+        <td>JCMC<br /><span style="font-size: 0.85em; color: #555">Jersey City Medical Center</span></td>
+        <td>355 Grand Street, Jersey City, NJ 07302</td>
+        <td>Bay entrance by Monmouth Street</td>
+        <td>Buzz for entry</td>
+      </tr>
+      <tr>
+        <td>Palisades Hospital</td>
+        <td>7600 River Road, North Bergen, NJ 07047</td>
+        <td>Bay on the north side of the building</td>
+        <td>5911*</td>
+      </tr>
+    </table>
+
+    <h2 id="phones">Reference: Phone Numbers</h2>
+    <table>
+      <tr>
+        <th style="width: 40%">Contact</th>
+        <th>Number</th>
+      </tr>
+      <tr>
+        <td>HUMC (Hoboken University Medical Center)</td>
+        <td>(201) 418-1900</td>
+      </tr>
+      <tr>
+        <td>JCMC (Jersey City Medical Center)</td>
+        <td>(201) 915-2190</td>
+      </tr>
+      <tr>
+        <td>Palisades Hospital</td>
+        <td>(201) 854-5100</td>
+      </tr>
+      <tr>
+        <td>MedCentral Trauma &ndash; trauma activation (call ahead of arrival)</td>
+        <td>(201) 324-5023</td>
+      </tr>
+      <tr>
+        <td>Burn Center &ndash; Livingston</td>
+        <td>(973) 322-5920</td>
+      </tr>
+      <tr>
+        <td>Poison Control</td>
+        <td>(800) 222-1222</td>
+      </tr>
+      <tr>
+        <td>CHEMTREC (hazardous materials)</td>
+        <td>(800) 262-8200</td>
+      </tr>
+      <tr>
+        <td>HPD Dispatch</td>
+        <td>(201) 420-2130</td>
+      </tr>
+      <tr>
+        <td>HVAC building</td>
+        <td>(201) 420-2135</td>
+      </tr>
+    </table>
+
+    <h2 id="fueling">Reference: Fueling</h2>
+    <div class="note">
+      <b>Access-restricted content.</b> The payment code below is operational
+      access information; keep this page behind the site password.
+    </div>
+    <p>
+      Before leaving the city to get gas, the crew chief informs HPD (see General
+      Driving Policies). Refuel before dropping below half a tank.
+    </p>
+    <table>
+      <tr>
+        <th style="width: 28%">Station</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>Exxon Weehawken</td>
+        <td>18th Street, between Willow Avenue and Park Avenue</td>
+      </tr>
+      <tr>
+        <td>Exxon Jersey City</td>
+        <td>854 Jersey Avenue, Jersey City, NJ 07310 (Jersey Avenue and 18th Street)</td>
+      </tr>
+    </table>
+    <p><b>Payment.</b> Pay with the credit card on file at the desk:</p>
+    <ol>
+      <li>Swipe the card.</li>
+      <li>At the first prompt, enter code <b>1320</b>.</li>
+      <li>At the second prompt, enter the last 3 digits of the license plate.</li>
+    </ol>
+
+    <h2 id="forms">Reference: Forms</h2>
+    <ul>
+      <li>
+        <b>Vehicle Incident Report form</b> &ndash;
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUQVM2MlhCSDlZUFlPT0pEREVLWVVMNklMWS4u&origin=QRCode" target="_blank" rel="noopener">open form</a>,
+        also posted as a QR code on the bulletin board.
+        <span style="color: #8a6a00"><i>(content update pending)</i></span>
+      </li>
+      <li>
+        <b>FTO Trainee Report form</b> &ndash; completed by the FTO;
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rolSo7vVqkC0sZ1WAuOVYdHTQS4mBuBFlgjwNuFAcDBUREw1MjFOT0cxTzFKRU5QTkhaMEw0SzZXMC4u&origin=QRCode" target="_blank" rel="noopener">open form</a>,
+        also posted as a QR code on the 2nd-floor bulletin board.
+        <span style="color: #8a6a00"><i>(content update pending)</i></span>
+      </li>
+    </ul>
+
+    <!-- ===================== PUNCH LIST ===================== -->
+    <h2 id="punchlist">Outstanding items</h2>
+    <div class="todo">
+      <b>Content to be supplied or confirmed before this manual is considered
+      complete:</b>
+      <ol>
+        <li>Rig-check link for unit 823 (Section I).</li>
+        <li>Vehicle Incident Report form needs updating.</li>
+        <li>FTO Trainee Report form needs updating.</li>
+        <li>
+          Driver Trainee Task Book: drafted as a proposal; skill checks and
+          criteria pending FTO review.
+        </li>
+        <li>
+          FTO review of Section III task numbering, sequence, and prerequisites.
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
